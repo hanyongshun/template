@@ -59,7 +59,4 @@
 			</plugin>
 		</plugins>
 	</build>
-	<modules>
-		<module>util</module>
-	</modules>
 </project>
