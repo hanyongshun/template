@@ -59,4 +59,8 @@
 			</plugin>
 		</plugins>
 	</build>
+	<modules>
+		<module>app-util</module>
+		<module>app-web</module>
+	</modules>
 </project>
