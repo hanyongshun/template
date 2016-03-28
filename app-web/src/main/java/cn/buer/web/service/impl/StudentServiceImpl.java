@@ -14,7 +14,7 @@ public class StudentServiceImpl implements StudentService {
 	@Resource
 	private StudentDao studentDao;
 	@Override
-	public Student add(Student student) {
+	public Student addStudent(Student student) {
 		studentDao.insert(student);
 		try {
 			System.out.println("新增学生" + student.getName());
@@ -22,6 +22,11 @@ public class StudentServiceImpl implements StudentService {
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		}
+		return student;
+	}
+	@Override
+	public Student queryStudent(Long studentId) {
+		Student student = studentDao.selectByPrimaryKey(studentId);
 		return student;
 	}
 

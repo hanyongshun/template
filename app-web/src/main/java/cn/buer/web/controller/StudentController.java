@@ -17,8 +17,8 @@ public class StudentController {
 	private StudentService studentService;
 	@RequestMapping("queryStudent/{studentId}")
 	@ResponseBody
-	public Student queryStudent(@PathVariable String studentId){
-		studentService.add(null);
-		return null;
+	public Student queryStudent(@PathVariable Long studentId){
+		Student result =  studentService.queryStudent(studentId);
+		return result;
 	}
 }
