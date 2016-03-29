@@ -5,11 +5,13 @@ import javax.annotation.Resource;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import cn.buer.web.aspect.annotation.ErrorHandling;
 import cn.buer.web.domain.Student;
 import cn.buer.web.persistence.StudentDao;
 import cn.buer.web.service.StudentService;
 @Service
 @Transactional(rollbackFor = Exception.class)
+//@ErrorHandling
 public class StudentServiceImpl implements StudentService {
 	@Resource
 	private StudentDao studentDao;
@@ -28,6 +30,7 @@ public class StudentServiceImpl implements StudentService {
 	public Student queryStudent(Long studentId) {
 		Student student = studentDao.selectByPrimaryKey(studentId);
 		return student;
+		
 	}
 
 }

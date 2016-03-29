@@ -51,11 +51,12 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<context:component-scan base-package="cn.buer.web.service" />
+	<context:component-scan base-package="cn.buer.web.service,cn.buer.web.aspect" />
 	<context:annotation-config />
 	<tx:annotation-driven />
 <!-- 	aop自动扫描 -->
 	<aop:aspectj-autoproxy></aop:aspectj-autoproxy>
+	
 	<bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="typeAliasesPackage" value="cn.buer.web.domain" />
