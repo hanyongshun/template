@@ -51,7 +51,7 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<context:component-scan base-package="cn.buer.web.service,cn.buer.web.aspect" />
+	<context:component-scan base-package="cn.buer.web.service,cn.buer.util.aspect" />
 	<context:annotation-config />
 	<tx:annotation-driven />
 <!-- 	aop自动扫描 -->

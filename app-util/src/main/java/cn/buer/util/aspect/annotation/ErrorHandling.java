@@ -1,4 +1,4 @@
-package cn.buer.web.aspect.annotation;
+package cn.buer.util.aspect.annotation;
 
 import java.lang.annotation.Documented;
 import java.lang.annotation.ElementType;
@@ -12,5 +12,5 @@ import java.lang.annotation.Target;
 @Documented
 @Inherited
 public @interface ErrorHandling {
-
+	String value() default "";
 }

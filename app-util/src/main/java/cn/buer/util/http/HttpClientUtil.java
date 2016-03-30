@@ -20,9 +20,12 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicNameValuePair;
 import org.apache.http.util.EntityUtils;
 /**
- * httpclicent工具类
- * @author Sky
- *
+ * 
+* @ClassName: HttpClientUtil
+* @Description: httpclicent工具类
+* @author WangBuEr
+* @date 2016年3月30日 下午1:36:39
+*
  */
 public class HttpClientUtil {
 	/**
