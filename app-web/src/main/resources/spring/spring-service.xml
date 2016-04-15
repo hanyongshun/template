@@ -16,13 +16,7 @@
 	<!-- </jdbc:embedded-database> -->
 	
 	<!-- spring的属性加载器，加载properties文件中的属性 -->
-	<bean id="propertyConfigurer"
-		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
-		<property name="location">
-			<value>classpath:other/test.*.properties</value>
-		</property>
-		<property name="fileEncoding" value="utf-8" />
-	</bean>
+	<context:property-placeholder location="classpath:other/test.*.properties" />
 	<bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource"
 		init-method="init" destroy-method="close">
 		<!-- 基本属性 url、user、password -->

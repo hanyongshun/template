@@ -141,7 +141,10 @@ public class ForkJoinSimple {
 		WriterFileTask task =  simple.new WriterFileTask(1, 10000 * 1000);
 		Future<List<File>> result =  FORK_JOIN_POOL.submit(task);
 		try {
-			result.get();
+			List<File> fileList = result.get();
+			for(File file : fileList){
+				file.delete();
+			}
 		} catch (InterruptedException e) {
 			e.printStackTrace();
 		} catch (ExecutionException e) {
