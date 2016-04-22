@@ -120,6 +120,9 @@
             align = findFocus("videoFloat","name");
         if(!url) return false;
         if ( !checkNum( [width, height] ) ) return false;
+        if(!width){
+        	width = "100%";
+        }
         editor.execCommand('insertvideo', {
             url: convert_url(url),
             width: width.value,
@@ -284,7 +287,7 @@
     function insertUpload(){
         var videoObjs=[],
             uploadDir = editor.getOpt('videoUrlPrefix'),
-            width = $G('upload_width').value || 420,
+            width = $G('upload_width').value || "100%",
             height = $G('upload_height').value || 280,
             align = findFocus("upload_alignment","name") || 'none';
         for(var key in uploadVideoList) {

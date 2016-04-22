@@ -7,6 +7,15 @@
         <dependent-module archiveName="app-util-0.0.1-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/app-util/app-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
+        <dependent-module archiveName="dbs-common-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/dbs-common/dbs-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="bmc-dubbo-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/bmc-dubbo/bmc-dubbo">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="qcs-common-1.0.0-SNAPSHOT.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/qcs-common/qcs-common">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
         <property name="context-root" value="app-web"/>
         <property name="java-output-path" value="/app-web/target/classes"/>
     </wb-module>

@@ -11121,8 +11121,10 @@ UE.commands['insertimage'] = {
             ci = opt[0];
             if (opt.length == 1) {
                 str = '<img src="' + ci.src + '" ' + (ci._src ? ' _src="' + ci._src + '" ' : '') +
-                    (ci.width ? 'width="' + ci.width + '" ' : '') +
-                    (ci.height ? ' height="' + ci.height + '" ' : '') +
+                		'width="100%" height="auto"' + 
+//                		'max-width="100%" width="auto" height="100%"' + 
+//                    (ci.width ? 'width="' + ci.width + '" ' : '') +
+//                    (ci.height ? ' height="' + ci.height + '" ' : '') +
                     (ci['floatStyle'] == 'left' || ci['floatStyle'] == 'right' ? ' style="float:' + ci['floatStyle'] + ';"' : '') +
                     (ci.title && ci.title != "" ? ' title="' + ci.title + '"' : '') +
                     (ci.border && ci.border != "0" ? ' border="' + ci.border + '"' : '') +
@@ -11137,8 +11139,10 @@ UE.commands['insertimage'] = {
             } else {
                 for (var i = 0; ci = opt[i++];) {
                     str = '<p ' + (ci['floatStyle'] == 'center' ? 'style="text-align: center" ' : '') + '><img src="' + ci.src + '" ' +
-                        (ci.width ? 'width="' + ci.width + '" ' : '') + (ci._src ? ' _src="' + ci._src + '" ' : '') +
-                        (ci.height ? ' height="' + ci.height + '" ' : '') +
+                    	'width="100%" height="auto"' + 
+//                        (ci.width ? 'width="' + ci.width + '" ' : '') + 
+//                        (ci.height ? ' height="' + ci.height + '" ' : '') +
+                        (ci._src ? ' _src="' + ci._src + '" ' : '') +
                         ' style="' + (ci['floatStyle'] && ci['floatStyle'] != 'center' ? 'float:' + ci['floatStyle'] + ';' : '') +
                         (ci.border || '') + '" ' +
                         (ci.title ? ' title="' + ci.title + '"' : '') + ' /></p>';
@@ -13705,7 +13709,6 @@ UE.commands['cleardoc'] = {
  * @since 1.2.6.1
  */
 UE.plugin.register('anchor', function (){
-
     return {
         bindEvents:{
             'ready':function(){
@@ -17712,7 +17715,7 @@ UE.plugins['video'] = function (){
             for(var i=0,vi,len = videoObjs.length;i<len;i++){
                 vi = videoObjs[i];
                 cl = (type == 'upload' ? 'edui-upload-video video-js vjs-default-skin':'edui-faked-video');
-                html.push(creatInsertStr( vi.url, vi.width || 420,  vi.height || 280, id + i, null, cl, 'image'));
+                html.push(creatInsertStr( vi.url, vi.width || "100%",  vi.height || 280, id + i, null, cl, 'image'));
             }
             me.execCommand("inserthtml",html.join(""),true);
             var rng = this.selection.getRange();
@@ -24471,6 +24474,11 @@ UE.plugin.register('simpleupload', function (){
                             loader = me.document.getElementById(loadingId);
                             loader.setAttribute('src', link);
                             loader.setAttribute('_src', link);
+                            
+//                            loader.setAttribute("max-width","100%");
+                            loader.setAttribute("width","100%");
+                            loader.setAttribute("height","auto");
+                            
                             loader.setAttribute('title', json.title || '');
                             loader.setAttribute('alt', json.original || '');
                             loader.removeAttribute('id');

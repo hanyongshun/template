@@ -45,7 +45,7 @@
 		class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
 		<property name="dataSource" ref="dataSource" />
 	</bean>
-	<context:component-scan base-package="cn.buer.web.service,cn.buer.util.aspect" />
+	<context:component-scan base-package="cn.buer.web.service,cn.buer.util.aspect,cn.buer.util.Spring" />
 	<context:annotation-config />
 	<tx:annotation-driven />
 <!-- 	aop自动扫描 -->
@@ -57,5 +57,11 @@
 	</bean>
 	<bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
 		<property name="basePackage" value="cn.buer.web.persistence" />
+	</bean>
+	
+	<bean id="qiniuServiceImpl" class="com.oraro.common.qiniu.impl.QiniuServiceImpl">
+		<property name="accessKey" value="${qiniu.accessKey}"></property>
+		<property name="secretKey" value="${qiniu.secretKey}"></property>
+		<property name="bucketName" value="${qiniu.bucketName}"></property>
 	</bean>
 </beans>

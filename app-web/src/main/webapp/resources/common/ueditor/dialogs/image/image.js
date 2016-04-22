@@ -29,11 +29,12 @@
         }
 
         var img = editor.selection.getRange().getClosedNode();
-        if (img && img.tagName && img.tagName.toLowerCase() == 'img') {
-            setTabFocus('remote');
-        } else {
-            setTabFocus('upload');
-        }
+        setTabFocus('upload');
+//        if (img && img.tagName && img.tagName.toLowerCase() == 'img') {
+//            setTabFocus('remote');
+//        } else {
+//            setTabFocus('upload');
+//        }
     }
 
     /* 初始化tabbody */
@@ -72,7 +73,6 @@
 
     /* 初始化onok事件 */
     function initButtons() {
-
         dialog.onok = function () {
             var remote = false, list = [], id, tabs = $G('tabhead').children;
             for (var i = 0; i < tabs.length; i++) {
