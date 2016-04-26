@@ -59,9 +59,4 @@
 		<property name="basePackage" value="cn.buer.web.persistence" />
 	</bean>
 	
-	<bean id="qiniuServiceImpl" class="com.oraro.common.qiniu.impl.QiniuServiceImpl">
-		<property name="accessKey" value="${qiniu.accessKey}"></property>
-		<property name="secretKey" value="${qiniu.secretKey}"></property>
-		<property name="bucketName" value="${qiniu.bucketName}"></property>
-	</bean>
 </beans>
