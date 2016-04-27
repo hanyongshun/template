@@ -72,7 +72,7 @@
 			<artifactId>app-util</artifactId>
 			<version>0.0.1-SNAPSHOT</version>
 		</dependency>
-		
+
 		<!-- dubbo begin -->
 		<dependency>
 			<groupId>com.alibaba</groupId>
@@ -87,8 +87,8 @@
 			<scope>runtime</scope>
 		</dependency>
 		<!-- dubbo end -->
-		
-		
+
+
 		<!-- zookeeper begin -->
 		<dependency>
 			<groupId>org.apache.zookeeper</groupId>
@@ -107,6 +107,13 @@
 			<version>0.4</version>
 		</dependency>
 		<!-- zookeeper end -->
+
+		<dependency>
+			<groupId>org.apache.velocity</groupId>
+			<artifactId>velocity</artifactId>
+			<version>1.7</version>
+		</dependency>
+
 	</dependencies>
 	<build>
 		<plugins>
@@ -126,18 +133,18 @@
 					<overwrite>true</overwrite>
 				</configuration>
 			</plugin>
-			
-			<plugin> 
-              <artifactId>maven-compiler-plugin</artifactId> 
-              <configuration> 
-                  <source>1.7</source> 
-                  <target>1.7</target> 
-                  <encoding>UTF-8</encoding> 
-                  <compilerArguments> 
-                   <extdirs>src\main\webapp\WEB-INF\lib</extdirs> 
-                 </compilerArguments> 
-              </configuration> 
-            </plugin> 
+
+			<plugin>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>1.7</source>
+					<target>1.7</target>
+					<encoding>UTF-8</encoding>
+					<compilerArguments>
+						<extdirs>src\main\webapp\WEB-INF\lib</extdirs>
+					</compilerArguments>
+				</configuration>
+			</plugin>
 		</plugins>
 	</build>
 </project>
