@@ -1,24 +1,26 @@
-var myApp = angular.module("myApp", []);
-myApp.controller("SomeController", function($scope) {
+var myApp = angular.module("myApp", ['ngRoute','simple']).config(['$routeProvider',function($routeProvider){
+	$routeProvider.when("/",{
+		templateUrl:'home',
+		controller:function($scope){
+			console.info("go to home" + $scope.name);
+		},
+		resolve:{
+			"data":["$http",function($http){
+				return{
+					name:"wjm"
+				}
+			}]
+		}
+	}).when("/list",{
+		templateUrl:'list',
+		controller:function($scope){
+			console.info("go to list");
+		}
+	}).when("/add",{
+		templateUrl:'add'
+	}).otherwise({
+		redirectTo:"/"
+	});
+}]);
 
-});
 
-myApp
-		.directive(
-				'sidebox',
-				function() {
-					return {
-						restrict : 'EA',
-						scope : {
-							title : '@'
-						},
-						transclude : true,
-						template : '<div class="sidebox">\
-	<div class="content">\
-	<h2 class="header">{{ title }}</h2>\
-	<span class="content" ng-transclude>\
-	</span>\
-	</div>\
-	</div>'
-					};
-				});
