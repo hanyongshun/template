@@ -116,33 +116,64 @@
 
 	</dependencies>
 	<build>
+
 		<plugins>
 			<plugin>
-				<groupId>org.mybatis.generator</groupId>
-				<artifactId>mybatis-generator-maven-plugin</artifactId>
-				<version>1.3.2</version>
-				<dependencies>
-					<dependency>
-						<groupId>cn.buer</groupId>
-						<artifactId>app-util</artifactId>
-						<version>0.0.1-SNAPSHOT</version>
-					</dependency>
-				</dependencies>
+				<groupId>org.codehaus.mojo</groupId>
+				<artifactId>buildnumber-maven-plugin</artifactId>
 				<configuration>
-					<verbose>true</verbose>
-					<overwrite>true</overwrite>
+					<format>{0,date,yyyy-MM-dd HH:mm:ss}</format>
+					<items>
+						<item>timestamp</item>
+					</items>
 				</configuration>
 			</plugin>
-
 			<plugin>
-				<artifactId>maven-compiler-plugin</artifactId>
+				<groupId>net.alchim31.maven</groupId>
+				<artifactId>yuicompressor-maven-plugin</artifactId>
 				<configuration>
-					<source>1.7</source>
-					<target>1.7</target>
+					<!-- 读取js,css文件采用UTF-8编码 -->
 					<encoding>UTF-8</encoding>
-					<compilerArguments>
-						<extdirs>src\main\webapp\WEB-INF\lib</extdirs>
-					</compilerArguments>
+					<!-- 不显示js可能的错误 -->
+					<jswarn>false</jswarn>
+					<!-- 若存在已压缩的文件，会先对比源文件是否有改动。有改动便压缩，无改动就不压缩 -->
+					<force>false</force>
+					<!-- 在指定的列号后插入新行 -->
+					<linebreakpos>-1</linebreakpos>
+					<!-- 压缩之前先执行聚合文件操作 -->
+					<preProcessAggregates>true</preProcessAggregates>
+					<!-- 压缩后保存文件后缀 -->
+					<suffix>.${timestamp}</suffix>
+					<!-- 源目录，即需压缩的根目录 -->
+					<sourceDirectory>${basedir}/src/main/webapp/resources</sourceDirectory>
+					<!-- 压缩js和css文件 -->
+					<includes>
+						<include>**/*.js</include>
+						<include>**/*.css</include>
+					</includes>
+					<!-- 以下目录和文件不会被压缩 -->
+					<excludes>
+						<exclude>**/*.min.js</exclude>
+						<exclude>**/*.min.css</exclude>
+						<exclude>common/**/*.js</exclude>
+					</excludes>
+					<!-- 压缩后输出文件目录 -->
+					<outputDirectory>F:/tt</outputDirectory>
+					<!-- 聚合文件 -->
+					<aggregations>
+						<aggregation>
+<!-- 							合并每一个文件后插入一新行 -->
+							<insertNewLine>true</insertNewLine>
+<!-- 							需合并文件的根文件夹 -->
+							<inputDir>${basedir}/src/main/webapp/resources/script</inputDir>
+<!-- 							最终合并的输出文件 -->
+							<output>${basedir}/src/main/webapp/resources/script/app.js</output>
+<!-- 							把以下js文件合并成一个js文件，是按顺序合并的 -->
+							<includes>
+								<include>*.js</include>
+							</includes>
+						</aggregation>
+					</aggregations>
 				</configuration>
 			</plugin>
 		</plugins>

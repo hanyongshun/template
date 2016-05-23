@@ -38,30 +38,30 @@
 	</mvc:annotation-driven>
 	
 	
-	<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer">
-	  <property name="resourceLoaderPath" value="/WEB-INF/views/"/>
-	  <property name="velocityProperties">    
-        <props>    
-            <prop  key="input.encoding">UTF-8</prop>    
-            <prop  key="output.encoding">UTF-8</prop>      
-         </props>    
-     </property> 
-    </bean>
-    <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver">
-        <property name="cache" value="true"/>
-        <property name="prefix" value=""/>
-        <property name="suffix" value=".html"/>
-        <property name="exposeSpringMacroHelpers" value="true"/>
-        <property name="contentType" value="text/html;charset=UTF-8"></property>  
-    </bean>
+<!-- 	<bean id="velocityConfig" class="org.springframework.web.servlet.view.velocity.VelocityConfigurer"> -->
+<!-- 	  <property name="resourceLoaderPath" value="/WEB-INF/views/"/> -->
+<!-- 	  <property name="velocityProperties">     -->
+<!--         <props>     -->
+<!--             <prop  key="input.encoding">UTF-8</prop>     -->
+<!--             <prop  key="output.encoding">UTF-8</prop>       -->
+<!--          </props>     -->
+<!--      </property>  -->
+<!--     </bean> -->
+<!--     <bean id="viewResolver" class="org.springframework.web.servlet.view.velocity.VelocityViewResolver"> -->
+<!--         <property name="cache" value="true"/> -->
+<!--         <property name="prefix" value=""/> -->
+<!--         <property name="suffix" value=".jsp"/> -->
+<!--         <property name="exposeSpringMacroHelpers" value="true"/> -->
+<!--         <property name="contentType" value="text/html;charset=UTF-8"></property>   -->
+<!--     </bean> -->
 	
 	
 	<!-- jsp视图 -->
-<!-- 	<bean id="viewResolver" -->
-<!-- 		class="org.springframework.web.servlet.view.InternalResourceViewResolver"> -->
-<!-- 		<property name="prefix" value="/WEB-INF/views/" /> -->
-<!-- 		<property name="suffix" value=".html" /> -->
-<!-- 	</bean> -->
+	<bean id="viewResolver"
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/views/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
 	
 	<!-- SpringMVC上传文件时，需要配置MultipartResolver处理器 -->
 	<bean id="multipartResolver"
