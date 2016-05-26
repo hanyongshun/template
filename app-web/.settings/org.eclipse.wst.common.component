@@ -9,5 +9,7 @@
         </dependent-module>
         <property name="context-root" value="app-web"/>
         <property name="java-output-path" value="/app-web/target/classes"/>
+        <property name="component.inclusion.patterns" value="resources/script/**/*.min.js,resources/styles/**/*.min.css"/>
+        <property name="component.exclusion.patterns" value="resources/script/**/*.js,resources/styles/**/*.css,WEB-INF/views/**/*.jsp"/>
     </wb-module>
 </project-modules>
